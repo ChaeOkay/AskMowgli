@@ -1,0 +1,7 @@
+<div class="new-question">
+  <%= @question.errors.to_a.join(' ,') %>
+  <form action='new-question' method='post'>
+    <input name='question[title]' value="<%= @question.title %>" type ='text'>
+    <input type='submit'>
+  </form>
+</div>
