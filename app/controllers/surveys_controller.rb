@@ -14,4 +14,10 @@ end
 
 get 'surveys/:id' do
 	@survey = Survey.find(params[:id])
+	erb :'surveys/show'
+end
+
+get '/users/:user_id/surveys' do 
+	@surveys = Survey.where(:user_id => params[:user_id])
+	erb :'surveys/index'
 end
