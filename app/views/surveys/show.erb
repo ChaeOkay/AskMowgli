@@ -1,0 +1,7 @@
+<div class="show-survey">
+  <p><%= @survey.title %></p>
+    <% @survey.question.each do |q| %>
+      <%= q.description %><br>
+      <%= q.prompt %><br>
+    <% end %>
+</div>

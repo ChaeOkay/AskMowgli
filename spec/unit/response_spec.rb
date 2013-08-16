@@ -17,17 +17,12 @@ describe Response do
           question_type: 'multiple choice',
           description: 'what is your favorite color?',
           prompt: 'e.g., today I prefer red over blue, I will choose red' )
-      r = Response.create(value: 'red')
-      g = Response.create(value: 'green')
-      b = Response.create(value: 'blue')
+      vermilion = Response.create(value: 'my favorite color today is vermilion')
+      question.responses << vermilion
 
-      question.responses << r
-      question.responses << g
-      question.responses << b
-
-      question.responses.size.should == 3
+      question.responses.first.value.should == vermilion.value
       question.delete
-      r.delete; g.delete; b.delete
+      vermilion.delete
     end
 
     it "should belong to a user" do
