@@ -1,7 +1,7 @@
 <div class="new-survey">
   <%= @survey.errors.to_a.join(' ,') %>
   <form action='new-survey' method='post'>
-    <input name='survey[title]' value="<%= @survey.title %>" type ='text'>
+    <input name='survey[:name]' value="<%= @survey.name %>" type ='text'>
     <input type='submit'>
   </form>
 </div>

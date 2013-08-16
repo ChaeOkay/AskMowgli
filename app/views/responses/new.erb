@@ -1,7 +1,7 @@
 <div class="new-response">
   <%= @response.errors.to_a.join(' ,') %>
   <form action='new-response' method='post'>
-    <input name='response[title]' value="<%= @response.title %>" type ='text'>
+    <input name='response[:value]' value="<%= @response.value %>" type ='text'>
     <input type='submit'>
   </form>
 </div>
