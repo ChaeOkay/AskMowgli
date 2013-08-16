@@ -9,6 +9,6 @@ post '/question' do
 	if @question.save
 		redirect "/surveys/#{@question.survey_id}"
 	else
-		erb :'questions/new', :layout: false
+		erb :'questions/new', layout: false
 	end
 end
