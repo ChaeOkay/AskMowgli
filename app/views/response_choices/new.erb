@@ -1,6 +1,6 @@
 <div class="new-response-choice">
   <%= @response-choice.errors.to_a.join(' ,') %>
-  <form action='new-response-choice' method='post'>
+  <form action='/new-response-choice' method='post'>
     <input name='response-choice[:value]' value="<%= @response-choice.value %>" type ='text'>
     <input type='submit'>
   </form>
