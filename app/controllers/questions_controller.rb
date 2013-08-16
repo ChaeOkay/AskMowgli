@@ -4,7 +4,7 @@ get '/survey/:survey_id/question/new' do
 	erb :'questions/new', layout: false
 end
 
-post '/question' do 
+post '/question' do
 	@question = Question.new(params[question])
 	if @question.save
 		redirect "/surveys/#{@question.survey_id}"
