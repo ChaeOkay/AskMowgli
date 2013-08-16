@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   $('form').on('focusout', function(){
-    var data = $('#form[name="name"]').val();
+    var data = $('#form[name="response[value]"]').val();
 
     $.post('/responses', data, function(saveStatus){
       if (saveStatus == 'true'){

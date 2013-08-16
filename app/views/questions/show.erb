@@ -1,5 +1,7 @@
 <div class="show-questions">
-  <%= @question.question_type %><br>
-  <%= @question.description %><br>
-  <%= @question.prompt %><br>
+  <h3><%= @question.prompt %></h3>
+  <p><%= @question.description %></p>
+
+  <%= erb :'responses/new' %>
+
 </div>
