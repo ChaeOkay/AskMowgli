@@ -1,6 +1,8 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
+  has_many :surveys
+
   validates :email, :name, presence: true
   validates :email, uniqueness: true
 
@@ -19,5 +21,5 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
-  
+
 end
