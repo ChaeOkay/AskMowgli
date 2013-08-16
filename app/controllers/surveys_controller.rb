@@ -13,6 +13,12 @@ post '/surveys' do
 	end
 end
 
+get '/surveys/new' do
+	@survey = Survey.new
+	@survey.user_id = current_user.id
+	erb :'surveys/new', layout: false
+end
+
 get '/surveys/:id' do
 	@survey = Survey.find(params[:id])
 	erb :'surveys/show'
