@@ -1,4 +1,4 @@
-#AskMowgli
+l#AskMowgli
 
 ####Team Project: Seth, Rhonda, Dan, Chae
 
@@ -13,8 +13,8 @@
 -  Questions
   -  has many Responses
   -  has many ResposeChoices
-  -  prompt (question subtitle)
-  -  description (question)
+  -  prompt (question)
+  -  description (question subtitle)
   -  type (multile choice, text, etc)
 -  Responses
   -  belogs to users
