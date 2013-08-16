@@ -8,6 +8,3 @@ post '/responses' do
   end
 
 end
-
-<form
-<input type=text name=response[value]
