@@ -1,8 +1,5 @@
 <div id="user-profile">
 	<h4><%= @user.name %>'s Profile</h4>
-
-	<!-- there used to be a timestamp here but Chae wanted it gone. -->
-
 	<div id="user-surveys">
 		<% unless @surveys.nil? || @surveys.empty? %>
 			<%= erb :'surveys/index', layout: false %>

@@ -1,7 +1,10 @@
 <div class="new-survey">
+<h3>Create a New Survey</h3>
   <%= @survey.errors.to_a.join(' ,') %>
-  <form action='new-survey' method='post'>
-    <input name='survey[title]' value="<%= @survey.title %>" type ='text'>
-    <input type='submit'>
+  <form action='/surveys' method='post'>
+  	<label for="survey[name]">Survey Name:</label>
+    <input name='survey[name]' value="<%= @survey.name %>" type ='text' />
+    <input name='survey[user_id]' value="<%= @survey.user_id %>" type ='hidden' />
+    <input type='submit' value="Create!" />
   </form>
 </div>

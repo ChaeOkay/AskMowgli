@@ -1,7 +1,12 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+	
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+	//set up event handlers for ajax forms
+	$('#new-survey-link').on('click', function(e){
+		e.preventDefault();
+		var partial = $.get('/surveys/new', function(data){
+			$('#modalContainer').html(data);
+			$('#modalContainer').foundation('reveal', 'open');
+		});
+	})
 });
