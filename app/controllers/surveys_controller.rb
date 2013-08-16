@@ -4,7 +4,7 @@ get '/surveys' do
 end
 
 post '/surveys' do
-	@survey = Survey.new(params[survey])
+	@survey = Survey.new(params['survey'])
 	@survey.user_id = current_user.id
 	if @survey.save
 		redirect "/surveys/#{@survey.id}"
@@ -22,3 +22,4 @@ get '/users/:user_id/surveys' do
 	@surveys = Survey.where(:user_id => params[:user_id])
 	erb :'surveys/index'
 end
+
