@@ -1,10 +1,13 @@
-<h4 class="user_show_header">Name</h4>
-<h4 class="user_show_header"><%= @user.name %></h4>
-<br />
+<div id="user-profile">
+	<h4><%= @user.name %>'s Profile</h4>
 
-<h4 class="user_show_header">Created on:</h4>
-<h4 class="user_show_header"><%= @user.created_at %></h4>
-<br />
+	<!-- there used to be a timestamp here but Chae wanted it gone. -->
 
-<h4 class="user_show_header"><a href='/users/<%= @user.id %>/posts'>Submissions</a></h4>
-<h4 class="user_show_header"><a href='#'>Comments</a></h4>
+	<div id="user-surveys">
+		<% unless @surveys.nil? || @surveys.empty? %>
+			<%= erb :'surveys/index', layout: false %>
+		<% else %>
+			<p><%= @user.name %> does not have any surveys.</p>
+		<% end %>
+	</div>
+</div>
