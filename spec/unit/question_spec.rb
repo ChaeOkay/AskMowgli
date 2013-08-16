@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Question do
   describe "a new question" do
+
     it "should be valid" do
       question = Question.create(
           question_type: 'multiple choice',
