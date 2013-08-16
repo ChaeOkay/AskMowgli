@@ -1,7 +1,8 @@
 <div class="show-survey">
   <p><%= @survey.title %></p>
-    <% @survey.question.each do |q| %>
-      <%= q.description %><br>
-      <%= q.prompt %><br>
-    <% end %>
+  <% @all_survey_questions = Question.where(survey_id: @survey.id) %>
+  <% @all_survey_questions.each do |q| %>
+     <%= q.description %><br>
+     <%= q.prompt %><br>
+   <% end %>
 </div>
