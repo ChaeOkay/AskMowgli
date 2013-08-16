@@ -1,8 +1,8 @@
-<div class="show-survey">
-  <p><%= @survey.name %></p>
-  <% @all_survey_questions = Question.where(survey_id: @survey.id) %>
-  <% @all_survey_questions.each do |q| %>
-     <%= q.description %><br>
-     <%= q.prompt %><br>
-   <% end %>
+<div class="row">
+  <div class="show-survey">
+    <p><%= @survey.name %></p>
+    <% @survey.questions.each do |@question| %>
+       <%= erb :'questions/show' %>
+    <% end %>  
+  </div>
 </div>
