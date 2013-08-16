@@ -5,6 +5,7 @@ end
 
 post '/surveys' do
 	@survey = Survey.new(params[survey])
+	@survey.user_id = current_user.id
 	if @survey.save
 		redirect "/surveys/#{@survey.id}"
 	else
