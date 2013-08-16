@@ -19,7 +19,7 @@ get '/surveys/new' do
 	erb :'surveys/new', layout: false
 end
 
-get 'surveys/:id' do
+get '/surveys/:id' do
 	@survey = Survey.find(params[:id])
 	erb :'surveys/show'
 end
