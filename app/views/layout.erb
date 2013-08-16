@@ -3,19 +3,19 @@
 <head>
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/foundation.css">
-
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>AskMowgli</title>
 </head>
 <body>
   <div class="container">
     <nav>
-      <h1><a href='/'>Sinatra Skeleton</a></h1>
-      <ul>
+      <h1><a href='/'>AskMowgli</a></h1>
+      <ul class='nav-bar'>
+        <li><a href='/surveys'>Surveys</a></li>
         <% if current_user %>
           <li><a href='/logout'>Log Out</a></li>
         <% else %>
