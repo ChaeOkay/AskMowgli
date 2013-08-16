@@ -5,7 +5,10 @@
   <link rel="stylesheet" href="/css/foundation.css">
   <link rel="stylesheet" href="/css/application.css">
 
+  <script src="/js/custom.modernizr.js"></script>
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/foundation.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title>AskMowgli</title>
@@ -26,5 +29,10 @@
     </nav>
     <%= yield %>
   </div>
+  <script>
+  document.write('<script src=/js/vendor/'
+    + ('__proto__' in {} ? 'zepto' : 'jquery')
+    + '.js><\/script>');
+</script>
 </body>
 </html>
