@@ -1,8 +1,7 @@
 $(document).ready(function() {
-<<<<<<< HEAD
 
-  $(form).on('focusout', function(){
-    var data = $(#form[name='name']).val();
+  $('form').on('focusout', function(){
+    var data = $('#form[name="name"]').val();
 
     $.post('/responses', data, function(saveStatus){
       if (saveStatus == 'true'){
@@ -13,10 +12,7 @@ $(document).ready(function() {
 
     });
   });
-
-=======
 	
-
 	//set up event handlers for ajax forms
 	$('#new-survey-link').on('click', function(e){
 		e.preventDefault();
@@ -24,6 +20,5 @@ $(document).ready(function() {
 			$('#modalContainer').html(data);
 			$('#modalContainer').foundation('reveal', 'open');
 		});
-	})
->>>>>>> master
+	});
 });

@@ -1,7 +1,8 @@
 <div class="row">
   <div class="show-survey">
     <p><%= @survey.name %></p>
-    <% @survey.questions.each do |@question| %>
+    <% @survey.questions.each do |question| %>
+    	<% @question = question %>
        <%= erb :'questions/show' %>
     <% end %>  
   </div>
