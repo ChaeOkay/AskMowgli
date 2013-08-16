@@ -20,7 +20,7 @@ describe Response do
       vermilion = Response.create(value: 'my favorite color today is vermilion')
       question.responses << vermilion
 
-      question.responses.should == vermilion.value
+      question.responses.first.value.should == vermilion.value
       question.delete
       vermilion.delete
     end
