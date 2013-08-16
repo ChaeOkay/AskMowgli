@@ -1,0 +1,7 @@
+<div class="new-response-choice">
+  <%= @response-choice.errors.to_a.join(' ,') %>
+  <form action='new-response-choice' method='post'>
+    <input name='response-choice[title]' value="<%= @response-choice.title %>" type ='text'>
+    <input type='submit'>
+  </form>
+</div>
