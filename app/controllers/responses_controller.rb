@@ -1,4 +1,5 @@
 post '/responses' do
-  @response = Response.new(params['response'])
+	val = params['value']
+  @response = Response.new(value: val)
   @response.save ? 'true' : 'false'
 end

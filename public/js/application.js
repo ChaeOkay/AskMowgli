@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
   $('form').on('focusout', function(){
-    var data = $('#form[name="response[value]"]').val();
+    var data = {'value' : $('.response-field').val()};
+
+    console.log(data);
 
     $.post('/responses', data, function(saveStatus){
       if (saveStatus == 'true'){
