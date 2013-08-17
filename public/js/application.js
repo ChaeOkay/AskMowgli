@@ -1,11 +1,11 @@
 $(document).ready(function() {
 
   $('form').on('focusout', function(){
-    var data = {'value' : $('.response-field').val()};
+    var data = {'value' : $('.reply-field').val()};
 
     console.log(data);
 
-    $.post('/responses', data, function(saveStatus){
+    $.post('/replies', data, function(saveStatus){
       if (saveStatus == 'true'){
         //append something after some elevement in questions show
       } else {

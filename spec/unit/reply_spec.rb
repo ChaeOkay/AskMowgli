@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe Response do
+describe Reply do
   describe "a new response" do
 
     it "should be valid" do
-      response = Response.create(value: 'blue')
-      response.should be_valid
-      response.delete
+      reply = Reply.create(value: 'blue')
+      reply.should be_valid
+      reply.delete
     end
 
     it "should not be valid" do
@@ -17,17 +17,17 @@ describe Response do
           question_type: 'multiple choice',
           description: 'what is your favorite color?',
           prompt: 'e.g., today I prefer red over blue, I will choose red' )
-      vermilion = Response.create(value: 'my favorite color today is vermilion')
-      question.responses << vermilion
+      vermilion = Reply.create(value: 'my favorite color today is vermilion')
+      question.reply << vermilion
 
-      question.responses.first.value.should == vermilion.value
+      question.replies.first.value.should == vermilion.value
       question.delete
       vermilion.delete
     end
 
     it "should belong to a user" do
       user = User.create(name: "user1", email: 'user@user.com', password: 'password')
-      user.responses.should be_empty
+      user.replies.should be_empty
       user.delete
     end
 
