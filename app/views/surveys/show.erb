@@ -1,6 +1,12 @@
 <div class="row">
   <div class="show-survey">
     <p><%= @survey.name %></p>
+
+    <% if @survey.user_id == current_user.id %>
+    	<p>This is your survey, <%= current_user.name %>.</p>
+    	<p><a id="new-question-link" href="/surveys/<%= @survey.id %>/questions/new">Add a new question.</a></p>
+    <% end %>
+
     <% @survey.questions.each do |question| %>
     	<% @question = question %>
        <%= erb :'questions/show' %>

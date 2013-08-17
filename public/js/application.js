@@ -2,19 +2,15 @@ $(document).ready(function() {
 
   $('form').on('focusout', function(){
     var data = {'value' : $('.reply-field').val()};
-
-    console.log(data);
-
     $.post('/replies', data, function(saveStatus){
       if (saveStatus == 'true'){
         //append something after some elevement in questions show
       } else {
 
       };
-
     });
   });
-	
+
 	//set up event handlers for ajax forms
 	$('#new-survey-link').on('click', function(e){
 		e.preventDefault();
@@ -23,4 +19,12 @@ $(document).ready(function() {
 			$('#modalContainer').foundation('reveal', 'open');
 		});
 	});
+
+  $('#new-question-link').on('click', function(e){
+    e.preventDefault();
+    var partial = $.get('/questions/new', function(data){
+      $('#modalContainer').html(data);
+      $('#modalContainer').foundation('reveal', 'open');
+    });
+  });
 });

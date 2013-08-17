@@ -1,9 +1,16 @@
 <div class="new-question">
+<h3>Add a question to your survey</h3>
   <%= @question.errors.to_a.join(' ,') %>
-  <form action='/question' method='post'>
-    <input name='question[:question_type]' value="<%= question.question_type %>" type='text'>
-    <input name='question[:description]' value="<%= @question.description %>" type='text'>
+  <form action='/questions' method='post'>
+  	<label for='question[:question_type]'>Question Type</label>
+    <input name='question[:question_type]' value="<%= @question.question_type %>" type='text'>
+
+    <label for='question[:prompt]'>Prompt</label>
     <input name='question[:prompt]' value="<%= @question.prompt %>" type='text'>    
-    <input type='submit'>
+
+    <label for='question[:description]'>Help Text</label>
+    <input name='question[:description]' value="<%= @question.description %>" type='text'>
+
+    <input type='submit' value='Add Question' />
   </form>
 </div>
