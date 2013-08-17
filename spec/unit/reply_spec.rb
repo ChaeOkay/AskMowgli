@@ -18,7 +18,7 @@ describe Reply do
           description: 'what is your favorite color?',
           prompt: 'e.g., today I prefer red over blue, I will choose red' )
       vermilion = Reply.create(value: 'my favorite color today is vermilion')
-      question.reply << vermilion
+      question.replies << vermilion
 
       question.replies.first.value.should == vermilion.value
       question.delete
