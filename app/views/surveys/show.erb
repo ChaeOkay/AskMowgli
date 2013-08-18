@@ -8,6 +8,8 @@
       	<p>This is your survey, <%= current_user.name %>.</p>
       	<p><a id="new-question-link" href="/surveys/<%= @survey.id %>/questions/new">Add a new question.</a></p>
 
+        <%= erb :'surveys/results' %>
+
       <% else %>
 
         <% @survey.questions.each do |question| %>
