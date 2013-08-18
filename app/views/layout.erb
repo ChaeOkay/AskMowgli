@@ -20,11 +20,11 @@
       <ul class='nav-bar'>
         <li><a href='/surveys'>Surveys</a></li>
         <% if current_user %>
-        <li><a id="new-survey-link" href='/surveys/new'>Create Survey</a></li>
-        <li><a id="logout-link" href='/logout'>Log Out</a></li>
+          <li><a id="new-survey-link" href='/surveys/new'>Create Survey</a></li>
+          <li><a id="logout-link" href='/logout'>Log Out</a></li>
         <% else %>
-        <li><a href='/login'>Log In</a></li>
-        <li><a href='/users/new'>Sign Up</a></li>
+          <li><a href='/login'>Log In</a></li>
+          <li><a href='/users/new'>Sign Up</a></li>
         <% end %>
       </ul>
     </nav>
@@ -32,7 +32,7 @@
   </div>
 
   <script>
-  $(document).foundation();
+    $(document).foundation();
   </script>
 
   <div id="modalContainer" class="reveal-modal">

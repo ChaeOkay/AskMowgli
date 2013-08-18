@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-  $('form').on('focusout', function(){
-    var data = {'value' : $('.reply-field').val()};
+  $('input').on('focusout', function(){
+    var data = { 'value' : $(this).val() };
     $.post('/replies', data, function(saveStatus){
       if (saveStatus == 'true'){
-        //append something after some elevement in questions show
+        $(this).after('<img src="/images/check.png" />');
       } else {
 
       };
@@ -28,7 +28,12 @@ $(document).ready(function() {
     });
   });
 
-
+  $('.reply-container').each( function(index, value){
+    var questionId = $(this).attr('id');
+    $.get('/questions/'+questionId+'/replies/find_or_create', function(data){
+      $('#'+questionId).html(data);
+    });
+  });
 
 
 });
