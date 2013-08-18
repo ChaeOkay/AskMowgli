@@ -1,6 +1,7 @@
 class Survey < ActiveRecord::Base
   belongs_to :user
   has_many :questions
+  has_many :replies, through: :questions
 
   validates_presence_of :name, :user_id
 
@@ -11,25 +12,25 @@ class Survey < ActiveRecord::Base
     @stats[:questions_hist] = questions_hist
   end
 
-  def users_per_question
-    self.questions.map { |q| q.replies.pluck(:user_id) }
-    #[[1, 2], [1, 2], [1]]   index is the question_id, sub_array represents user_id
+  def users_in_survey
+    self.replies.pluck(:user_id)
   end
 
   def started_survey
-    users_per_question.flatten.uniq.size
+    users_in_survey.uniq.size
   end
 
   def completed_survey
     ct = Hash.new(0)
-    users_per_question.flatten.each { |user| ct[user] +=1 }
-    completed = ct.select {|user, count| count == users_per_question.size }.keys
+    users_in_survey.each { |user| ct[user] +=1 }
+    completed = ct.select { |user, count| count == self.questions.size }.keys
     completed.size
   end
 
   def questions_hist
     ct = Hash.new(0)
-    users_per_question.each_with_index { |users, index| ct[index] }
+    question_ids = self.replies.pluck(:question_id).uniq
+    responses = replies.group_by {|id| id.is_a?(Fixnum)}
   end
 
 end
