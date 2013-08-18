@@ -2,14 +2,21 @@
   <div class="show-survey">
     <p><%= @survey.name %></p>
 
-    <% if @survey.user_id == current_user.id %>
-    	<p>This is your survey, <%= current_user.name %>.</p>
-    	<p><a id="new-question-link" href="/surveys/<%= @survey.id %>/questions/new">Add a new question.</a></p>
+    <% if current_user %>
+      <% if @survey.user_id == current_user.id %>
+
+      	<p>This is your survey, <%= current_user.name %>.</p>
+      	<p><a id="new-question-link" href="/surveys/<%= @survey.id %>/questions/new">Add a new question.</a></p>
+
+      <% else %>
+
+        <% @survey.questions.each do |question| %>
+          <% @question = question %>
+           <%= erb :'questions/show' %>
+        <% end %>
+      <% end %>
+
     <% end %>
 
-    <% @survey.questions.each do |question| %>
-    	<% @question = question %>
-       <%= erb :'questions/show' %>
-    <% end %>  
   </div>
 </div>
