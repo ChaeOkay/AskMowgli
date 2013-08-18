@@ -29,8 +29,9 @@ class Survey < ActiveRecord::Base
 
   def questions_hist
     ct = Hash.new(0)
-    question_ids = self.replies.pluck(:question_id).uniq
-    responses = replies.group_by {|id| id.is_a?(Fixnum)}
+    question_values = self.replies.pluck(:question_id, :value)
+    question_values.each do |
+    end
   end
 
 end
