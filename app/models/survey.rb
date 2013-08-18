@@ -5,28 +5,31 @@ class Survey < ActiveRecord::Base
   validates_presence_of :name, :user_id
 
   def stats
-    @stats = []
+    @stats = {}
+    @stats[:started_survey] = started_survey
+    @stats[:completed_survey] = completed_survey
+    @stats[:questions_hist] = questions_hist
+  end
 
-    # a survey has many questions
-      # a reply belongs to a queston and a user_id
-          # a reply can be a response_choice
+  def users_per_question
+    self.questions.map { |q| q.replies.pluck(:user_id) }
+    #[[1, 2], [1, 2], [1]]   index is the question_id, sub_array represents user_id
+  end
 
-  # how many users have started the survey?
-    # survey.questions.user_id.unique.count
-    questions.where(users: {})
-    #> Survey.joins(questions: :replies)
+  def started_survey
+    users_per_question.flatten.uniq.size
+  end
 
-  # how many of those users have completed the survey?
-    # show user_Id from survey questions where count(user_id) == number of questions
-     # survey.questions.user_id where
-      # user_id count is == number of questions
+  def completed_survey
+    ct = Hash.new(0)
+    users_per_question.flatten.each { |user| ct[user] +=1 }
+    completed = ct.select {|user, count| count == users_per_question.size }.keys
+    completed.size
+  end
 
-      # can a there be multiple replys where user_id and question_id are the same?
-
-  # questions each
-    # show question
-    # show response value and # of people with same response
-      # question.values.each => hash[value] += 1
+  def questions_hist
+    ct = Hash.new(0)
+    users_per_question.each_with_index { |users, index| ct[index] }
   end
 
 end
