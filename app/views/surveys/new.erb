@@ -1,6 +1,6 @@
 <div class="new-survey">
 <h3>Create a New Survey</h3>
-<!--   <%= @survey.errors.to_a.join(' ,') %> -->
+  <%= @survey.errors.to_a.join(' ,') %>
   <form action='/surveys' method='post'>
   	<label for="survey[name]">Survey Name:</label>
     <input name='survey[name]' value="<%= @survey.name %>" type ='text' />
