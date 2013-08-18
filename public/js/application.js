@@ -1,15 +1,6 @@
 $(document).ready(function() {
 
-  $('form').on('focusout', function(){
-    var data = {'value' : $('.reply-field').val()};
-    $.post('/replies', data, function(saveStatus){
-      if (saveStatus == 'true'){
-        //append something after some elevement in questions show
-      } else {
 
-      };
-    });
-  });
 
 	//set up event handlers for ajax forms
 	$('#new-survey-link').on('click', function(e){
@@ -28,7 +19,16 @@ $(document).ready(function() {
     });
   });
 
+  $('form').on('focusout', function(){
+    var data = {'value' : $('.reply-field').val()};
+    $.post('/replies', data, function(saveStatus){
+      if (saveStatus == 'true'){
+        //append something after some elevement in questions show
+      } else {
 
+      };
+    });
+  });
 
 
 });
