@@ -2,15 +2,16 @@
 <h3>Add a question to your survey</h3>
   <%= @question.errors.to_a.join(' ,') %>
   <form action='/questions' method='post'>
-  	<label for='question[:question_type]'>Question Type</label>
-    <input name='question[:question_type]' value="<%= @question.question_type %>" type='text'>
+  	<label for='question[question_type]'>Question Type</label>
+    <input name='question[question_type]' value="<%= @question.question_type %>" type='text' />
 
-    <label for='question[:prompt]'>Prompt</label>
-    <input name='question[:prompt]' value="<%= @question.prompt %>" type='text'>    
+    <label for='question[prompt]'>Prompt</label>
+    <input name='question[prompt]' value="<%= @question.prompt %>" type='text' />    
 
-    <label for='question[:description]'>Help Text</label>
-    <input name='question[:description]' value="<%= @question.description %>" type='text'>
+    <label for='question[description]'>Help Text</label>
+    <input name='question[description]' value="<%= @question.description %>" type='text'/ >
 
+    <input type='hidden' name="question[survey_id]" value="<%= @question.survey_id %>" />
     <input type='submit' value='Add Question' />
   </form>
 </div>
