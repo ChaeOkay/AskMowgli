@@ -21,6 +21,7 @@ end
 
 get '/surveys/:id' do
 	@survey = Survey.find(params[:id])
+	survey_stats(@survey) if current_user
 	erb :'surveys/show'
 end
 
