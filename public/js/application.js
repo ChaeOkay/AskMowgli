@@ -9,6 +9,7 @@ $(document).ready(function() {
 		});
 	});
 
+
   $('#new-question-link').on('click', function(e){
     e.preventDefault();
     var partial = $.get($('#new-question-link').attr('href'), function(data){
