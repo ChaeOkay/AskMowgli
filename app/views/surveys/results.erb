@@ -1,26 +1,29 @@
 <div class="results">
-  <div class="percentage" >
-    <p class="percentage"><%= (@survey.stats[:completed_survey].to_f / @survey.stats[:started_survey] * 100).to_i %>% of users have completed the survey.</p>
-  </div>
-    <p>No. of users who have started the survey: <%= @survey.stats[:started_survey] %><br />
-    No. of users who have answerd all questions: <%= @survey.stats[:completed_survey] %></p>
-
-    <% @survey.stats[:questions_hist].each do |qid, reply| %>
+    <% unless @survey.stats[:started_survey] == 0 %>
     <div class="percentage" >
-      <p class="percentage">Results on: <%= @survey.questions.find(qid).prompt %></p>
+      <p class="percentage"><%= (@survey.stats[:completed_survey].to_f / @survey.stats[:started_survey] * 100).to_i %>% of users have completed the survey.</p>
     </div>
 
-      <% reply.each do |question, count| %>
-        <table class="chart">
-          <td class="chart">
-            Response: <%= question %><br>
-            Count:  <%= count %>
-            <div class="barchart">
-              <span class="meter" style="width:44%"></span>
-            </div>
-          </td>
-        </table>
-      <% end %>
+      <p>No. of users who have started the survey: <%= @survey.stats[:started_survey] %><br />
+      No. of users who have answerd all questions: <%= @survey.stats[:completed_survey] %></p>
 
+      <% @survey.stats[:questions_hist].each do |qid, reply| %>
+      <div class="percentage" >
+        <p class="percentage">Results on: <%= @survey.questions.find(qid).prompt %></p>
+      </div>
+
+        <% reply.each do |question, count| %>
+          <table class="chart">
+            <td class="chart">
+              Response: <%= question %><br>
+              Count:  <%= count %>
+              <div class="barchart">
+                <span class="meter" style="width:44%"></span>
+              </div>
+            </td>
+          </table>
+        <% end %>
+
+      <% end %>
     <% end %>
 </div>

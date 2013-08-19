@@ -62,6 +62,7 @@ p.percentage {
   color: #6f6f6f;
   font-weight: 300;
   margin-bottom: 10px;
+  padding-left: 13px;
 }
 
 div.percentage{
@@ -69,5 +70,6 @@ div.percentage{
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-
+  position: relative;
+  left: -13px;
 }
