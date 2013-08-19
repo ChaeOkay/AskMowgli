@@ -8,7 +8,7 @@ class Survey < ActiveRecord::Base
   def stats
     @stats = {}
     @stats[:started_survey] = started_survey || 0
-    @stats[:completed_survey] = completed_survey ||
+    @stats[:completed_survey] = completed_survey
     @stats[:questions_hist] = questions_hist
     @stats
   end
