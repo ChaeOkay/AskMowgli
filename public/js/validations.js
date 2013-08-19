@@ -1,9 +1,9 @@
 validationFunction = function() {
   $('body').find('form').submit(function(event){
   var error = false;
-  $(this).find("[type=text]").each(function(){
+  $(this).find("[type=text], [type=password], [type=email]").each(function(){
     if (!$(this).val().length) {
-      alert("YOU SUCK!");
+      alert("Field cannot be blank");
       $(this).focus();
       error = true;
       return false; //Only exits the 'each' loop

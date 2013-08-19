@@ -2,20 +2,22 @@ $(document).ready(function() {
 
 
 
-	//set up event handlers for ajax forms
-	$('#new-survey-link').on('click', function(e){
-		e.preventDefault();
-		var partial = $.get('/surveys/new', function(data){
-			$('#modalContainer').html(data);
-			$('#modalContainer').foundation('reveal', 'open');
-		});
-	});
+  //set up event handlers for ajax forms
+  $('#new-survey-link').on('click', function(e){
+    e.preventDefault();
+    var partial = $.get('/surveys/new', function(data){
+      $('#modalContainer').html(data);
+      $('#modalContainer').foundation('reveal', 'open');
+      validationFunction(); // delete before push
+    });
+  });
 
   $('#new-question-link').on('click', function(e){
+    e.preventDefault();
     var partial = $.get($('#new-question-link').attr('href'), function(data){
       $('#modalContainer').html(data);
       $('#modalContainer').foundation('reveal', 'open');
-      validationFunction();
+      validationFunction(); // delete before push
     });
   });
 
