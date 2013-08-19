@@ -28,10 +28,13 @@ class Survey < ActiveRecord::Base
   end
 
   def questions_hist
-    ct = Hash.new(0)
-    question_values = self.replies.pluck(:question_id, :value)
-    question_values.each do |
-    end
+    questions = self.replies.pluck(:question_id).uniq
+    questions.inject(Hash.new(0)) { |collection, id| collection[id] = count_values(id); collection}
+  end
+
+  def count_values(id)
+    values = self.replies.where(:question_id => id).pluck(:value)
+    values.inject(Hash.new(0)) {|collection, val| collection[val]+= 1; collection }
   end
 
 end
