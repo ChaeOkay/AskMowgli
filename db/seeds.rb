@@ -1,4 +1,4 @@
-a = User.create(email: 'derp@derp.com', password: 'password', name: 'Derp')
+a = User.create(email: 'demo', password: 'password', name: 'Demo Man')
 b = User.create(email: 'wolverine@derp.com', password: 'password', name: 'The Wolverine')
 c = User.create(email: 'dagget@derp.com', password: 'password', name: 'Dagget')
 d = User.create(email: 'fake1@email.com', password: 'password', name: 'Fake1')
