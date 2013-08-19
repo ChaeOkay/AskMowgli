@@ -64,7 +64,7 @@ Reply.create(value: 'no', question: question5, user: b)
 Reply.create(value: 'no', question: question5, user: c)
 Reply.create(value: 'no', question: question5, user: d)
 Reply.create(value: 'no', question: question5, user: e)
-Reply.create(value: 'yes', question: question5, user: f)
+Reply.create(value: 'no', question: question5, user: f)
 
 Reply.create(value: '1983', question: question6, user: a)
 Reply.create(value: '1983', question: question6, user: b)
