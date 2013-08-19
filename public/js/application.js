@@ -25,7 +25,16 @@ $(document).ready(function() {
     });
   });
 
-  $('.show-questions').on('focusout', 'input.reply-field', function(){
+  $('form.reply-form').find('input').on('keypress', function(e){
+    if ( e.which == 13 ) // Enter key = keycode 13
+    {
+        e.preventDefault();
+        $('form.reply-form input').next().focus();
+    }
+    return false;
+  });
+
+  $('.show-questions').on('focusout', 'input.reply-field', function(e){
     if ( $(this).val() != '' )
     {
       var userId = $(this).parent().children('input[name="reply[user_id]"]').val();
@@ -40,7 +49,7 @@ $(document).ready(function() {
     }
     else
     {
-      console.log('nothing posted - no value in field, so doing nothing')
+      console.log('no value in field, so doing nothing')
     }  
   });
 
