@@ -21,9 +21,9 @@ post '/users' do
   else
     erb :'users/new'
   end
-end  
+end
 
-get '/users/:id/posts' do 
+get '/users/:id/posts' do
   @posts = User.find(params[:id]).posts
   erb :'/posts/index'
 end
