@@ -1,5 +1,5 @@
 <div class="new-reply small-6">
-  <form action='/replies' method='post'>
+  <form action='/replies' method='post' class="reply-form">
   	<label for='reply[value]'>Reply:</label>
     <input class="reply-field" name='reply[value]' type ='text' placeholder='Enter text here...' value="<%= @reply.value %>" />
     <input type="hidden" name="reply[user_id]" value="<%= @reply.user_id %>" />
