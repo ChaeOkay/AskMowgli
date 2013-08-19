@@ -34,8 +34,8 @@ $(document).ready(function() {
       var data = { 'reply' : { 'value' : replyValue, 'user_id' : userId, 'question_id' : questionId }};
 
       $.post('/replies', data, function(saveStatus){
-        if (saveStatus == 'true')
-          $(this).parent().after('<img src="/images/check.png" />');
+        if (saveStatus != '#false')
+          $(saveStatus+' input:first').after('<span><img src="/images/check.png" /> Saved!</span>');
       });  
     }
     else
