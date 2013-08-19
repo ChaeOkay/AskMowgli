@@ -10,6 +10,7 @@ class Survey < ActiveRecord::Base
     @stats[:started_survey] = started_survey
     @stats[:completed_survey] = completed_survey
     @stats[:questions_hist] = questions_hist
+    @stats
   end
 
   def users_in_survey
