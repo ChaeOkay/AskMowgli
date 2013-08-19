@@ -1,16 +1,5 @@
 $(document).ready(function() {
 
-  $('input').on('focusout', function(){
-    var data = { 'value' : $(this).val() };
-    $.post('/replies', data, function(saveStatus){
-      if (saveStatus == 'true'){
-        $(this).after('<img src="/images/check.png" />');
-      } else {
-
-      };
-    });
-  });
-
 	//set up event handlers for ajax forms
 	$('#new-survey-link').on('click', function(e){
 		e.preventDefault();
@@ -35,5 +24,23 @@ $(document).ready(function() {
     });
   });
 
+  $('.show-questions').on('focusout', 'input.reply-field', function(){
+    if ( $(this).val() != '' )
+    {
+      var userId = $(this).parent().children('input[name="reply[user_id]"]').val();
+      var questionId = $(this).parent().children('input[name="reply[question_id]"]').val();
+      var replyValue = $(this).val();
+      var data = { 'reply' : { 'value' : replyValue, 'user_id' : userId, 'question_id' : questionId }};
+
+      $.post('/replies', data, function(saveStatus){
+        if (saveStatus == 'true')
+          $(this).parent().after('<img src="/images/check.png" />');
+      });  
+    }
+    else
+    {
+      console.log('nothing posted - no value in field, so doing nothing')
+    }  
+  });
 
 });
