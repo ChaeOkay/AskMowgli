@@ -30,8 +30,8 @@ class Survey < ActiveRecord::Base
   def questions_hist
     ct = Hash.new(0)
     question_values = self.replies.pluck(:question_id, :value)
-    question_values.each do |
-    end
+    # question_values.each do |
+    # end
   end
 
 end
