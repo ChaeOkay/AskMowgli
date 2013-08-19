@@ -12,5 +12,5 @@ end
 
 post '/replies' do
   @reply = Reply.new(params['reply'])
-  @reply.save ? 'true' : 'false'
+  @reply.save ? '#'+@reply.question_id.to_s : 'false'
 end
